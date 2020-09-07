@@ -1,10 +1,10 @@
 // importing
-import express from 'express';
+import express from 'express'
 
 
 // app config 
-const app = express();
-
+const app = express()
+const port = proccess.env.PORT || 9000
 //middlaware
 
 // database config
@@ -15,3 +15,4 @@ const app = express();
 app.get('/', (req, res) => res.status(200).send('hellow world'))
 
 // listen
+app.listen(port, () => console.log(`Listen on localhosr:${port}`));
