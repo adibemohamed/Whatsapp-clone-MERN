@@ -9,5 +9,8 @@
     "start": "node server.js"
   },
   "author": "Adibe Mohamed",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }

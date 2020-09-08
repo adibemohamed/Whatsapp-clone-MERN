@@ -4,7 +4,8 @@ import express from 'express'
 
 // app config 
 const app = express()
-const port = proccess.env.PORT || 9000
+const port = process.env.PORT || 9001
+
 //middlaware
 
 // database config
@@ -15,4 +16,4 @@ const port = proccess.env.PORT || 9000
 app.get('/', (req, res) => res.status(200).send('hellow world'))
 
 // listen
-app.listen(port, () => console.log(`Listen on localhosr:${port}`));
+app.listen(port, () => console.log(`Listen on localhost:${port}`));
