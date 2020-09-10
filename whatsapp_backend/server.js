@@ -1,13 +1,14 @@
 // importing
 import express from 'express';
 import mongoose from 'mongoose';
-import Messages from './dbMessages';
+import Messages from './dbMessages.js';
 
 // app config 
 const app = express()
 const port = process.env.PORT || 9005
 
 //middlaware
+app.use(express.json());
 
 // DB config
 const connection_url = 'mongodb+srv://admin:scaYBOiMAv1bVNAm@cluster0.kwzje.mongodb.net/Whatsapp-mern-db?retryWrites=true&w=majority'
