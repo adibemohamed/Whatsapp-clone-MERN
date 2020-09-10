@@ -23,6 +23,17 @@ mongoose.connect(connection_url, {
 // api routes 
 app.get('/', (req, res) => res.status(200).send('hello world'));
 
+app.get('/api/v1/messages/sync', (req, res) => {
+    Messages.find((err, date) => {
+        if(err) {
+            res.status(500).send(err);
+        } else {
+            res.status(200).send(data);
+        }
+    })
+})
+
+
 app.post('/api/v1/messages/new', (req, res) => {
     const dbMessage = req.body;
 
@@ -35,6 +46,9 @@ app.post('/api/v1/messages/new', (req, res) => {
         }
     })
 })
+
+
+
 
 // listen
 app.listen(port, () => console.log(`Listen on localhost:${port}`));
