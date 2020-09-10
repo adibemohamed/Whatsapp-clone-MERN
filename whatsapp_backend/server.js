@@ -1,12 +1,11 @@
 // importing
-const express = require('express');
-const mongoose = require('mongoose');
-
-
+import express from 'express';
+import mongoose from 'mongoose';
+import Messages from './dbMessages';
 
 // app config 
 const app = express()
-const port = process.env.PORT || 9001
+const port = process.env.PORT || 9005
 
 //middlaware
 
