@@ -7,6 +7,16 @@ import Messages from './dbMessages.js';
 const app = express()
 const port = process.env.PORT || 9005
 
+var pusher = new Pusher({
+    appId: '1070962',
+    key: 'e78d980c8ec2309ce18c',
+    secret: '0710aa5914f84e92b5c0',
+    cluster: 'eu',
+    encrypted: true
+  });
+
+  
+
 //middlaware
 app.use(express.json());
 
@@ -23,8 +33,8 @@ mongoose.connect(connection_url, {
 // api routes 
 app.get('/', (req, res) => res.status(200).send('hello world'));
 
-app.get('/api/v1/messages/sync', (req, res) => {
-    Messages.find((err, date) => {
+app.get('/messages/sync', (req, res) => {
+    Messages.find((err, data) => {
         if (err) {
             res.status(500).send(err);
         } else {

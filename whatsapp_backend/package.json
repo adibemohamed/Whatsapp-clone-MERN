@@ -6,7 +6,8 @@
   "type": "module",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.10.4"
+    "mongoose": "^5.10.4",
+    "pusher": "^3.0.1"
   },
   "devDependencies": {},
   "scripts": {
