@@ -5,6 +5,8 @@ import { Sidebar } from "./Sidebar";
 import Pusher from "pusher-js";
 
 function App() {
+  useEffect(() => {}, []);
+
   useEffect(() => {
     var pusher = new Pusher("e78d980c8ec2309ce18c", {
       cluster: "eu",
