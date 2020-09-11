@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Chat.css";
 import { Avatar, IconButton } from "@material-ui/core";
 import AttachFile from "@material-ui/icons/AttachFile";
@@ -8,6 +8,12 @@ import InsertEmotionIcon from "@material-ui/icons/InsertEmoticon";
 import MicIcon from "@material-ui/icons/Mic";
 
 function Chat({ messages }) {
+  const [input, setInput] = useState("");
+
+  const sendMessage = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="chat">
       <div className="chat__header">
@@ -58,12 +64,14 @@ function Chat({ messages }) {
         <InsertEmotionIcon />
         <form>
           <input
-            // value={input}
-            // onChange={(e) => setInput(e.target.value)}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
             placeholder="type a message"
             type="text"
           />
-          <button type="submit">Send a message</button>
+          <button onClick={sendMessage} type="submit">
+            Send a message
+          </button>
         </form>
         <MicIcon />
       </div>
