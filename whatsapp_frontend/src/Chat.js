@@ -7,7 +7,20 @@ import SearchOurlined from "@material-ui/icons/SearchOutlined";
 import InsertEmotionIcon from "@material-ui/icons/InsertEmoticon";
 import MicIcon from "@material-ui/icons/Mic";
 import axios from "./axios";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 
+const options = [
+  "Contact info",
+  "Select messages",
+  "Mute notifications",
+  "Clear messages",
+  "Delete chat", 
+];
+
+const ITEM_HEIGHT = 100;
+ 
+ 
 function Chat({ messages }) {
   const [input, setInput] = useState("");
 
@@ -20,6 +33,18 @@ function Chat({ messages }) {
       received: false,
     });
     setInput("");
+  };
+
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   return (
@@ -39,9 +64,39 @@ function Chat({ messages }) {
           <IconButton>
             <AttachFile />
           </IconButton>
-          <IconButton>
-            <MoreVertIcon />
-          </IconButton>
+          <div>
+            <IconButton
+              aria-label="more"
+              aria-controls="long-menu"
+              aria-haspopup="true"
+              onClick={handleClick}
+            >
+              <MoreVertIcon />
+            </IconButton>
+            <Menu
+              id="long-menu"
+              anchorEl={anchorEl}
+              keepMounted
+              open={open}
+              onClose={handleClose}
+              PaperProps={{
+                style: {
+                  maxHeight: ITEM_HEIGHT * 4.5,
+                  width: "20ch",
+                },
+              }}
+            >
+              {options.map((option) => (
+                <MenuItem
+                  key={option}
+                  selected={option === "Pyxis"}
+                  onClick={handleClose}
+                >
+                  {option}
+                </MenuItem>
+              ))}
+            </Menu>
+          </div>
         </div>
       </div>
 
@@ -70,6 +125,7 @@ function Chat({ messages }) {
 
       <div className="chat__footer">
         <InsertEmotionIcon />
+        <AttachFile />
         <form>
           <input
             value={input}

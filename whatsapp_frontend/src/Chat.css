@@ -24,7 +24,9 @@
 .chat__headerInfo > p {
   color: gray;
 }
-
+.chat__headerRight {
+  display: flex;
+}
 .chat__body {
   flex: 1;
   background-color: #e5ddd5;
@@ -40,7 +42,7 @@
   position: relative;
   font-size: 16px;
   padding: 15px 10px;
-  width: fit-content; 
+  width: fit-content;
   background-color: white;
   margin-bottom: 30px;
   border-radius: 0px 20px 20px 20px;
@@ -79,10 +81,11 @@
 
 .chat__footer > form > input {
   flex: 1;
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 20px;
+  padding: 12px;
   border: none;
   outline-width: 0;
+  margin: 0 5px;
 }
 
 .chat__footer > form > button {
