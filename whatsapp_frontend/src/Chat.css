@@ -27,7 +27,8 @@
 
 .chat__body {
   flex: 1;
-  background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
+  background-color: #e5ddd5;
+  /* background-image: url("https://web.whatsapp.com/img/bg-chat-tile-light_686b98c9fdffef3f63127759e2057750.png"); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -38,16 +39,17 @@
 .chat__message {
   position: relative;
   font-size: 16px;
-  padding: 10px;
-  width: fit-content;
-  border-radius: 10px;
+  padding: 15px 10px;
+  width: fit-content; 
   background-color: white;
   margin-bottom: 30px;
+  border-radius: 0px 20px 20px 20px;
 }
 
 .chat__receiver {
   margin-left: auto;
   background-color: #dcf8c6;
+  border-radius: 20px 0px 20px 20px;
 }
 
 .chat__timestamp {

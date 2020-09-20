@@ -6,12 +6,20 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import SearchOurlined from "@material-ui/icons/SearchOutlined";
 import InsertEmotionIcon from "@material-ui/icons/InsertEmoticon";
 import MicIcon from "@material-ui/icons/Mic";
+import axios from "./axios";
 
 function Chat({ messages }) {
   const [input, setInput] = useState("");
 
-  const sendMessage = (e) => {
+  const sendMessage = async (e) => {
     e.preventDefault();
+    await axios.post("messages/new", {
+      message: input,
+      name: "Adibe",
+      timestamp: "Just now",
+      received: false,
+    });
+    setInput("");
   };
 
   return (
@@ -49,13 +57,13 @@ function Chat({ messages }) {
         ))}
 
         <p className="chat__message ">
-          <span className="chat__name">Adibe</span>
-          This is a message
+          {/* <span className="chat__name">Adibe</span> */}
+          Hi, How are you doing?
           <span className="chat__timestamp">{new Date().toUTCString()}</span>
         </p>
-        <p className="chat__message">
+        <p className="chat__message chat__receiver">
           <span className="chat__name">Adibe</span>
-          This is a message
+          Hi, I am doing well, thanks
           <span className="chat__timestamp">{new Date().toUTCString()}</span>
         </p>
       </div>
